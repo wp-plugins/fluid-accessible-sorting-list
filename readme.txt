@@ -9,7 +9,7 @@ Fluid Accessible Sorting List is a WAI-ARIA Enabled Sorting List Plugin for Word
 
 == Description ==
 
-Fluid Accessible Sorting List is a sorting list of your blog’s recent posts, recent comments, categories and meta
+Fluid Accessible Sorting List is a sorting list of your blog's recent posts, recent comments and archives
 and uses the Fluid WAI-ARIA enabled sorting list.
 
 == Installation ==
