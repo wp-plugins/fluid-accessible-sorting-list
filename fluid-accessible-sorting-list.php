@@ -3,9 +3,9 @@
 Plugin Name: Fluid Accessible Sorting List
 Plugin URI: http://wordpress.org/extend/plugins/fluid-accessible-sorting-list/
 Description: WAI-ARIA Enabled Sorting List Plugin for Wordpress
-Author: Theofanis Oikonomou, Kontotasiou Dionysia
-Version: 2.0
-Author URI: http://www.iti.gr/iti/people/ThOikon.html
+Author: Kontotasiou Dionysia
+Version: 3.0
+Author URI: http://www.iti.gr/iti/people/Dionisia_Kontotasiou.html
 */
 include_once 'getRecentPosts.php';
 include_once 'getRecentComments.php';
@@ -24,6 +24,12 @@ function FluidAccessibleSortingList_init() {
 
         wp_register_style('FluidAccessibleSortingList_css', ( get_bloginfo('wpurl') . '/wp-content/plugins/fluid-accessible-sorting-list/lib/FluidAccessibleSortingList.css'));
         wp_enqueue_style('FluidAccessibleSortingList_css');
+		
+		wp_register_script('reorderer', ( get_bloginfo('wpurl') . '/wp-content/plugins/fluid-accessible-sorting-list/lib/reorderer.js'));
+        wp_enqueue_script('reorderer');
+		
+		wp_register_script('reorderer_css', ( get_bloginfo('wpurl') . '/wp-content/plugins/fluid-accessible-sorting-list/lib/reorderer.css'));
+        wp_enqueue_script('reorderer_css');
     }
 }
 
@@ -68,22 +74,25 @@ function FluidAccessibleSortingListContent() {
 echo '<div id="demo-selector-listReorderer" class="demo-listReorderer-container fl-container-flex" role="application">
             <ol>
                 <li class="demo-listReorderer-movable flc-reorderer-movable"> ' . $options['archives'] . '
-    			<ul>
-                        	' . $archives . '
-                        </ul>
+					<ul>
+						' . $archives . '
+					</ul>
                 </li>
+				
                 <li class="demo-listReorderer-movable flc-reorderer-movable"> ' . $options['recentPosts'] . '
-    			<ul>
-                        	' . $recentPosts . '
-                        </ul>
+					<ul>
+                        ' . $recentPosts . '
+                    </ul>
                 </li>
+				
                 <li class="demo-listReorderer-movable flc-reorderer-movable"> ' . $options['recentComments'] . '
-    			<ul>
-                        	' . $recentComments . '
-                        </ul>
+					<ul>
+                        ' . $recentComments . '
+                    </ul>
                 </li>
             </ol>
         </div>
+		
         <script type="text/javascript">
             demo.initListReorderer();
         </script>';
